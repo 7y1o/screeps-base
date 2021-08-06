@@ -1,5 +1,10 @@
-module.exports = function(list: Creep[], spawn: StructureSpawn) {
+module.exports = function(list: Creep[]) {
     for (const creep of list) {
+        // Check source
+        if (!creep.memory.source) {
+            let src = creep.room.find(FIND_SOURCES);
+            creep.memory.source = src[Math.floor(Math.random() * src.length)];
+        }
 
         // Update creep state
         if (creep.store.getUsedCapacity(RESOURCE_ENERGY) === 0) {
@@ -18,8 +23,11 @@ module.exports = function(list: Creep[], spawn: StructureSpawn) {
                 creep.moveTo(creep.room.controller);
             }
         } else {
-            if (creep.withdraw(spawn, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(spawn);
+            let src = Game.getObjectById(creep.memory.source.id);
+            if (!src) continue;
+
+            if (creep.harvest(src) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(src);
             }
         }
     }
