@@ -21,8 +21,11 @@ module.exports = function(list: Creep[], spawn: StructureSpawn) {
                 creep.moveTo(spawn);
             }
         } else {
-            if (creep.harvest(creep.memory.source) === ERR_NOT_IN_RANGE) {
-                creep.moveTo(creep.memory.source);
+            let src = Game.getObjectById(creep.memory.source.id);
+            if (!src) continue;
+
+            if (creep.harvest(src) === ERR_NOT_IN_RANGE) {
+                creep.moveTo(src);
             }
         }
     }
