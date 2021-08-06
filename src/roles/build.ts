@@ -12,7 +12,9 @@ module.exports = function(list: Creep[], spawn: StructureSpawn) {
 
         // Work
         if (creep.memory.full) {
-            let constr = creep.room.find(FIND_MY_CONSTRUCTION_SITES)[0];
+            let constr = creep.pos.findClosestByPath(FIND_MY_CONSTRUCTION_SITES);
+            if (!constr) continue;
+
             if (creep.build(constr) === ERR_NOT_IN_RANGE) {
                 creep.moveTo(constr);
             }
