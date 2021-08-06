@@ -14,9 +14,7 @@ module.exports = function(list: Creep[]) {
                 creep.moveTo(hostile);
             }
         } else {
-            if (creep.pos !== creep.memory.flag.pos) {
-                creep.moveTo(creep.memory.flag.pos);
-            }
+            continue;
         }
     }
 };
