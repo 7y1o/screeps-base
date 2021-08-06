@@ -32,31 +32,36 @@ module.exports = class SpawnController {
     /** Init */
     constructor() {
         this.spawn = Object.keys(Game.spawns).map(i => Game.spawns[i]).filter(i => i.my)[0];
-        this.units = new UnitsController({
+        this.units = {
             mine: 8,
             up: 8,
             safe: 4,
             build: 4
-        });
+        };
     }
 
     /** Update */
     update(): void {
         let units = UnitsController.get();
         updateMine(units.mine, this.spawn);
-        updateUp(units.up, this.spawn);
+        updateUp(units.up);
         updateSafe(units.safe);
         updateBuild(units.build, this.spawn);
 
         if (!this.spawn.spawning && this.spawn.store.getUsedCapacity(RESOURCE_ENERGY) >= 200) {
-            let needed = _.filter([
-                {type: 'mine', length: units.mine.length},
-                {type: 'up', length: units.up.length},
-                {type: 'safe', length: units.safe.length},
-                {type: 'build', length: units.build.length}
-            ], (i: {type: 'mine' | 'up' | 'safe' | 'build', length: number}) => i.length < this.units[i.type]);
+            let needed;
+            if ([...units.mine, ...units.up, ...units.build, ...units.safe].length > 0) {
+                needed =_.filter([
+                    {type: 'mine', length: units.mine.length},
+                    {type: 'up', length: units.up.length},
+                    {type: 'safe', length: units.safe.length},
+                    {type: 'build', length: units.build.length}
+                ], (i: {type: 'mine' | 'up' | 'safe' | 'build', length: number}) => i.length < this.units[i.type]);
 
-            needed = _.minBy(needed, 'length') as {type: 'mine' | 'up' | 'safe' | 'build', length: number};
+                needed = _.minBy(needed, 'length') as {type: 'mine' | 'up' | 'safe' | 'build', length: number};
+            } else {
+                needed = {type: 'mine', length: 0}
+            }
 
             console.log('Needs to create', needed.type, 'unit!');
 
