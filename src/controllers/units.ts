@@ -25,6 +25,7 @@ module.exports = class UnitsController {
         for (const name in Game.creeps) {
             let creep = Game.creeps[name];
 
+            if (!creep) continue;
             if (!creep.my) continue;
             if (!creep.ticksToLive || creep.ticksToLive < 0) continue;
 
