@@ -1,0 +1,27 @@
+lockfileVersion: 5.3
+
+specifiers:
+  '@types/node': ^16.4.12
+  '@types/screeps': ^3.2.3
+  typescript: ^4.3.5
+
+devDependencies:
+  '@types/node': 16.4.12
+  '@types/screeps': 3.2.3
+  typescript: 4.3.5
+
+packages:
+
+  /@types/node/16.4.12:
+    resolution: {integrity: sha512-zxrTNFl9Z8boMJXs6ieqZP0wAhvkdzmHSxTlJabM16cf5G9xBc1uPRH5Bbv2omEDDiM8MzTfqTJXBf0Ba4xFWA==}
+    dev: true
+
+  /@types/screeps/3.2.3:
+    resolution: {integrity: sha512-XJwbYyvGGu+nuxxGzTFv9dDO4+4XK+w7fi6k2l+mIvN2bZ9m0jNJPt3qIB4Z1OUc+lZnM0YYjXkTwqZQCZtvZw==}
+    dev: true
+
+  /typescript/4.3.5:
+    resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
