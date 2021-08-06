@@ -1,16 +1,28 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@types/lodash': ^4.14.172
   '@types/node': ^16.4.12
   '@types/screeps': ^3.2.3
+  esbuild: ^0.12.18
+  lodash: ^4.17.21
   typescript: ^4.3.5
 
+dependencies:
+  lodash: 4.17.21
+
 devDependencies:
+  '@types/lodash': 4.14.172
   '@types/node': 16.4.12
   '@types/screeps': 3.2.3
+  esbuild: 0.12.18
   typescript: 4.3.5
 
 packages:
+
+  /@types/lodash/4.14.172:
+    resolution: {integrity: sha512-/BHF5HAx3em7/KkzVKm3LrsD6HZAXuXO1AJZQ3cRRBZj4oHZDviWPYu0aEplAqDFNHZPW6d3G7KN+ONcCCC7pw==}
+    dev: true
 
   /@types/node/16.4.12:
     resolution: {integrity: sha512-zxrTNFl9Z8boMJXs6ieqZP0wAhvkdzmHSxTlJabM16cf5G9xBc1uPRH5Bbv2omEDDiM8MzTfqTJXBf0Ba4xFWA==}
@@ -19,6 +31,16 @@ packages:
   /@types/screeps/3.2.3:
     resolution: {integrity: sha512-XJwbYyvGGu+nuxxGzTFv9dDO4+4XK+w7fi6k2l+mIvN2bZ9m0jNJPt3qIB4Z1OUc+lZnM0YYjXkTwqZQCZtvZw==}
     dev: true
+
+  /esbuild/0.12.18:
+    resolution: {integrity: sha512-arWhBQSy+oiBAp8VRRCFvAU+3jyf0gGacABLO3haMHboXCDjzq4WUqyQklst2XRuFS8MXgap+9uvODqj9Iygpg==}
+    hasBin: true
+    requiresBuild: true
+    dev: true
+
+  /lodash/4.17.21:
+    resolution: {integrity: sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==}
+    dev: false
 
   /typescript/4.3.5:
     resolution: {integrity: sha512-DqQgihaQ9cUrskJo9kIyW/+g0Vxsk8cDtZ52a3NGh0YNTfpUSArXSohyUGnvbPazEPLu398C0UxmKSOrPumUzA==}
