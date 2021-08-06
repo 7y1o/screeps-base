@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "module": "CommonJS",
-    "outFile": "../main.js",
+    "module": "System",
+    "outDir": "./dest",
     "moduleResolution": "node",
     "removeComments": true,
     "noImplicitAny": true,
@@ -18,7 +18,8 @@
     "baseUrl": ".",
     "types": [
       "screeps",
-      "node"
+      "node",
+      "lodash"
     ]
   },
   "include": [
